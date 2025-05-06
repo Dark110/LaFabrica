@@ -787,14 +787,14 @@ RectTransform:
   m_GameObject: {fileID: 365206999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.19, y: 4.19, z: 4.19}
+  m_LocalScale: {x: 5.57, y: 5.57, z: 5.57}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 778814946}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 384.9}
+  m_AnchoredPosition: {x: 0, y: 353.7}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &405323431 stripped
@@ -1161,6 +1161,7 @@ GameObject:
   - component: {fileID: 451044910}
   - component: {fileID: 451044909}
   - component: {fileID: 451044908}
+  - component: {fileID: 451044911}
   m_Layer: 0
   m_Name: BaseCubo
   m_TagString: Untagged
@@ -1198,7 +1199,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1254,6 +1255,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451044906}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &451044911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451044906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0f5e33b7bd47645bfe995381300f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aceptaBuenas: 1
+  temporizador: {fileID: 0}
+  objetivo: {fileID: 0}
 --- !u!1001 &455321909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1824,6 +1840,7 @@ GameObject:
   - component: {fileID: 620425220}
   - component: {fileID: 620425219}
   - component: {fileID: 620425218}
+  - component: {fileID: 620425221}
   m_Layer: 0
   m_Name: Base Cubo M
   m_TagString: Untagged
@@ -1861,7 +1878,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1917,6 +1934,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620425216}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &620425221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620425216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0f5e33b7bd47645bfe995381300f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aceptaBuenas: 0
+  temporizador: {fileID: 0}
+  objetivo: {fileID: 0}
 --- !u!1 &626718754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,6 +2000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botellasObjetivo: 0
   textoObjetivo: {fileID: 1914725079}
+  temporizador: {fileID: 0}
 --- !u!114 &626718757
 MonoBehaviour:
   m_ObjectHideFlags: 0
