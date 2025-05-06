@@ -14,8 +14,13 @@ public class MenuSystem : MonoBehaviour
     public void controles ()
     {
         SceneManager.LoadScene("Controles");
-    }   
+    }
 
+
+    public void Volver()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 
     public void Salir()
     {

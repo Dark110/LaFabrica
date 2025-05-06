@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class TemporizadorPastel : MonoBehaviour
 {
     public Image imagenPastel;
-    public float tiempoMaximo = 30f;
+    public float tiempoMaximo = 40f;
     private float tiempoActual;
 
     public bool timerActivo = true;
