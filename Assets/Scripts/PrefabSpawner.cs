@@ -47,11 +47,23 @@ public class PrefabSpawner : MonoBehaviour
     {
         while (cantidadSpawneada < cantidadASpawnear)
         {
+            // Spawnea el primer prefab
             SpawnearUnPrefab();
             cantidadSpawneada++;
+
+            // Decide si spawnear un segundo prefab casi inmediatamente
+            if (Random.value < 0.3f) // 30% de probabilidad de spawnear un segundo prefab rápidamente
+            {
+                yield return new WaitForSeconds(Random.Range(0.1f, 0.5f)); // Intervalo corto entre los dos spawns
+                SpawnearUnPrefab();
+                cantidadSpawneada++;
+            }
+
+            // Espera el intervalo normal antes del próximo ciclo
             yield return new WaitForSeconds(intervaloSpawn);
         }
     }
+
 
     void SpawnearUnPrefab()
     {

@@ -4,27 +4,38 @@ public class ContenedorBotella : MonoBehaviour
 {
     public bool aceptaBuenas;
     public TemporizadorPastel temporizador;
+    public int botellasObjetivo = 0; // Reemplaza la referencia a UIObjetivoBotellas
     public UIObjetivoBotellas objetivo;
-
     void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Botella")) return;
 
-        bool esBuena = other.GetComponent<Botella>().esBuena;
+        Botella botella = other.GetComponent<Botella>();
+        if (botella == null) return;
 
-        if (objetivo.botellasObjetivo > 0)
+        if (objetivo == null)
         {
-            objetivo.BotellaProcesada(); // Resta objetivo
+            Debug.LogError("Falta la referencia al script UIObjetivoBotellas.");
+            return;
+        }
+
+
+        bool esBuena = botella.esBuena;
+
+        if (botellasObjetivo > 0)
+        {
+            botellasObjetivo--; // Resta objetivo directamente
+            Debug.Log("Botellas restantes: " + botellasObjetivo);
         }
         else
         {
             if (aceptaBuenas && esBuena)
             {
-                temporizador.AñadirTiempo(10f);
+                temporizador.AñadirTiempo(3f);
             }
             else if (!aceptaBuenas && !esBuena)
             {
-                temporizador.AñadirTiempo(10f);
+                temporizador.AñadirTiempo(3f);
             }
             else
             {

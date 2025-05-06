@@ -1,11 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuSystem : MonoBehaviour
 {
 
-     public void Jugar()
+  
+    public TextMeshProUGUI textoPuntajeFinal; // Campo para mostrar el puntaje final
+
+        void Start()
+        {
+            if (textoPuntajeFinal != null)
+            {
+                textoPuntajeFinal.text = "Puntaje Personal: " + GameData.puntajeFinal;
+            }
+        }
+    
+    public void Jugar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
 

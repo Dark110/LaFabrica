@@ -7,7 +7,9 @@ public class UIObjetivoBotellas : MonoBehaviour
     public TextMeshProUGUI textoObjetivo;
     public TemporizadorPastel temporizador;
 
-    public bool objetivoCompletado => botellasObjetivo <= 0; // ✅ Esta línea arregla el error
+    private int puntaje = 0; // Variable para almacenar el puntaje acumulado
+
+    public bool objetivoCompletado => botellasObjetivo <= 0;
 
     void Start()
     {
@@ -17,7 +19,7 @@ public class UIObjetivoBotellas : MonoBehaviour
 
     void ActualizarTexto()
     {
-        textoObjetivo.text = "Procesa " + botellasObjetivo + " botellas para comenzar a puntuar.";
+        textoObjetivo.text = "Puntaje: " + puntaje; // Muestra el puntaje en tiempo real
     }
 
     void ProcesarBotella(GameObject botella)
@@ -27,7 +29,9 @@ public class UIObjetivoBotellas : MonoBehaviour
 
         if (objetivoCompletado && esCorrecta)
         {
+            puntaje += 10; // Suma 10 puntos por botella correcta
             temporizador.AñadirTiempo(10f);
+            ActualizarTexto(); // Actualiza el texto con el nuevo puntaje
         }
 
         if (esIncorrecta)
@@ -50,3 +54,4 @@ public class UIObjetivoBotellas : MonoBehaviour
         }
     }
 }
+

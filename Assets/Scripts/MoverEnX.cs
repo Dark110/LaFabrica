@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MoverEnX : MonoBehaviour
 {
-    public float velocidad = 2f;
+    public float velocidad = 2.2f;
     public bool moverALaDerecha = true;
 
     void Update()
