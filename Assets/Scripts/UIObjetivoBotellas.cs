@@ -13,19 +13,6 @@ namespace Game.UI
 
         public bool objetivoCompletado => botellasObjetivo <= 0;
 
-        void Start()
-        {
-            botellasObjetivo = Random.Range(3, 11); // Genera un número aleatorio de botellas objetivo
-            ActualizarTexto();
-        }
-
-        void ActualizarTexto()
-        {
-            if (textoObjetivo != null)
-            {
-                textoObjetivo.text = "Procesa " + botellasObjetivo + " botellas para comenzar a puntuar.";
-            }
-        }
 
         void ProcesarBotella(GameObject botella)
         {
@@ -44,19 +31,6 @@ namespace Game.UI
             }
         }
 
-        public void BotellaProcesada()
-        {
-            botellasObjetivo--;
-
-            if (botellasObjetivo > 0)
-            {
-                ActualizarTexto();
-            }
-            else
-            {
-                textoObjetivo.text = "¡Puntaje activado!";
-            }
-        }
     }
 
 
