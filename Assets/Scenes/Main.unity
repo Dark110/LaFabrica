@@ -198,6 +198,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e16cc1b8be9796744b8e44545a6aca19, type: 3}
+--- !u!1 &187421621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 187421623}
+  - component: {fileID: 187421622}
+  m_Layer: 0
+  m_Name: BotellaManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &187421622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187421621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a4cb0b48a204749a08f95ce6b03f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textoPuntaje: {fileID: 1914725079}
+  puntaje: 0
+--- !u!4 &187421623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187421621}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 899.27234, y: 891.63745, z: -79.89555}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &188484940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1723,7 +1769,7 @@ Transform:
   m_GameObject: {fileID: 550795435}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.54, y: -8.635301, z: 10.195645}
+  m_LocalPosition: {x: 6.532, y: -8.635301, z: 10.195645}
   m_LocalScale: {x: 0.6269995, y: 2.3457797, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1969,9 +2015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a4cb0b48a204749a08f95ce6b03f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  botellasObjetivo: 0
-  textoObjetivo: {fileID: 1914725079}
-  temporizador: {fileID: 626718757}
+  textoPuntaje: {fileID: 0}
+  puntaje: 0
 --- !u!114 &626718757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2314,8 +2359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aceptaBuenas: 1
   temporizador: {fileID: 626718757}
-  botellasObjetivo: 0
-  objetivo: {fileID: 626718756}
+  botellaManager: {fileID: 187421622}
 --- !u!65 &707313343
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2464,8 +2508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aceptaBuenas: 0
   temporizador: {fileID: 626718757}
-  botellasObjetivo: 0
-  objetivo: {fileID: 626718756}
+  botellaManager: {fileID: 187421622}
 --- !u!65 &762980123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4170,7 +4213,7 @@ Transform:
   m_GameObject: {fileID: 1463422694}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.07, y: 1.06, z: -10.39}
+  m_LocalPosition: {x: -7.36, y: 1.06, z: -8.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6902,3 +6945,4 @@ SceneRoots:
   - {fileID: 2081159369}
   - {fileID: 778814946}
   - {fileID: 759596558}
+  - {fileID: 187421623}

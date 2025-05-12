@@ -1,57 +1,35 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class UIObjetivoBotellas : MonoBehaviour
+public class BotellaManager : MonoBehaviour
 {
-    public int botellasObjetivo = 0;
-    public TextMeshProUGUI textoObjetivo;
-    public TemporizadorPastel temporizador;
+    public TextMeshProUGUI textoPuntaje;
+   
 
-    private int puntaje = 0; // Variable para almacenar el puntaje acumulado
-
-    public bool objetivoCompletado => botellasObjetivo <= 0;
+    [Header("Puntaje actual")]
+    public int puntaje = 0;
 
     void Start()
     {
-        botellasObjetivo = Random.Range(3, 11);
         ActualizarTexto();
     }
 
-    void ActualizarTexto()
+    public void ActualizarTexto()
     {
-        textoObjetivo.text = "Puntaje: " + puntaje; // Muestra el puntaje en tiempo real
+        if (textoPuntaje != null)
+            textoPuntaje.text = "Puntaje: " + puntaje;
     }
 
-    void ProcesarBotella(GameObject botella)
+    // Método para guardar el puntaje final en GameData (opcional)
+    public void GuardarPuntajeFinal()
     {
-        bool esCorrecta = botella.CompareTag("BotellaBuena");
-        bool esIncorrecta = botella.CompareTag("BotellaMala");
-
-        if (objetivoCompletado && esCorrecta)
-        {
-            puntaje += 10; // Suma 10 puntos por botella correcta
-            temporizador.AñadirTiempo(10f);
-            ActualizarTexto(); // Actualiza el texto con el nuevo puntaje
-        }
-
-        if (esIncorrecta)
-        {
-            temporizador.QuitarTiempo(5f);
-        }
+        GameData.puntajeFinal = puntaje;
     }
 
-    public void BotellaProcesada()
+    // Método opcional para reiniciar el puntaje
+    public void ReiniciarPuntaje()
     {
-        botellasObjetivo--;
-
-        if (botellasObjetivo > 0)
-        {
-            ActualizarTexto();
-        }
-        else
-        {
-            textoObjetivo.text = "¡Puntaje activado!";
-        }
+        puntaje = 0;
+        ActualizarTexto();
     }
 }
-

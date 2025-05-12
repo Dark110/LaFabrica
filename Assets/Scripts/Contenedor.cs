@@ -4,8 +4,8 @@ public class ContenedorBotella : MonoBehaviour
 {
     public bool aceptaBuenas;
     public TemporizadorPastel temporizador;
-    public int botellasObjetivo = 0; // Reemplaza la referencia a UIObjetivoBotellas
-    public UIObjetivoBotellas objetivo;
+    public BotellaManager botellaManager;
+
     void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Botella")) return;
@@ -13,35 +13,30 @@ public class ContenedorBotella : MonoBehaviour
         Botella botella = other.GetComponent<Botella>();
         if (botella == null) return;
 
-        if (objetivo == null)
-        {
-            Debug.LogError("Falta la referencia al script UIObjetivoBotellas.");
-            return;
-        }
-
-
         bool esBuena = botella.esBuena;
 
-        if (botellasObjetivo > 0)
+        if (aceptaBuenas && esBuena)
         {
-            botellasObjetivo--; // Resta objetivo directamente
-            Debug.Log("Botellas restantes: " + botellasObjetivo);
+            if (temporizador != null)
+                temporizador.AñadirTiempo(3f);
+            if (botellaManager != null)
+                botellaManager.puntaje += 10;
+        }
+        else if (!aceptaBuenas && !esBuena)
+        {
+            if (temporizador != null)
+                temporizador.AñadirTiempo(3f);
+            if (botellaManager != null)
+                botellaManager.puntaje += 10;
         }
         else
         {
-            if (aceptaBuenas && esBuena)
-            {
-                temporizador.AñadirTiempo(3f);
-            }
-            else if (!aceptaBuenas && !esBuena)
-            {
-                temporizador.AñadirTiempo(3f);
-            }
-            else
-            {
+            if (temporizador != null)
                 temporizador.QuitarTiempo(5f);
-            }
         }
+
+        if (botellaManager != null)
+            botellaManager.ActualizarTexto();
 
         Destroy(other.gameObject);
     }

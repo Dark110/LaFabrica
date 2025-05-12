@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // Necesario para cambiar de escena
+using UnityEngine.SceneManagement;
 
 public class TemporizadorPastel : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class TemporizadorPastel : MonoBehaviour
     private float tiempoActual;
 
     public bool timerActivo = true;
-    public string nombreEscenaMenu = "Menu"; // Nombre de la escena del menú
+    public string nombreEscenaMenu = "Menu";
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class TemporizadorPastel : MonoBehaviour
         {
             timerActivo = false;
             Debug.Log("¡Tiempo agotado!");
-            RegresarAlMenu(); // Llama al método para regresar al menú
+            RegresarAlMenu();
         }
     }
 
@@ -48,18 +48,11 @@ public class TemporizadorPastel : MonoBehaviour
 
     private void RegresarAlMenu()
     {
-        // Asegúrate de que el tiempo esté en escala normal
+     // Guardar puntaje
         Time.timeScale = 1f;
-
-        // Detén el temporizador
         timerActivo = false;
-
-        // Desbloquea y muestra el cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        // Carga la escena del menú
         SceneManager.LoadScene(nombreEscenaMenu);
     }
-
 }
